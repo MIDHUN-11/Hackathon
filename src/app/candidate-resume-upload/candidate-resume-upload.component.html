@@ -1,0 +1,6 @@
+<p>candidate-resume-upload</p>
+<form (ngSubmit)="onSubmit">
+    <input type="file" (change)="onFileSelected($event)" accept=".pdf,.dec,.docx"/>
+    <button type="submit" [disabled]="!selectedFile">Upload</button>
+    <p *ngIf="uploadStatus">{{uploadStatus}}</p>
+</form>
