@@ -1,46 +1,32 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  loginForm: FormGroup;
-  isLoading = false; // To show a loading indicator
-  errorMessage = ''; // To display error messages
+  email: string = '';
+  password: string = '';
+  errorMessage: string = '';
+  successMessage: string = '';
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
-    this.loginForm = this.fb.group({
-      email: [''],
-      password: ['']
-    });
-  }
+
+  constructor(private router : Router) {}
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      this.isLoading = true;
-      this.errorMessage = '';
-
-      const loginData = this.loginForm.value;
-      this.http.post('http://localhost:4200//login', loginData).subscribe({
-        next: (response) => {
-          console.log('Login successful:', response);
-          // Handle successful login (e.g., store token, navigate to another page)
-        },
-        error: (error) => {
-          console.error('Login failed:', error);
-          this.errorMessage = 'Invalid username or password.';
-        },
-        complete: () => {
-          this.isLoading = false;
-        }
-      });
+    if (this.email && this.password) {
+      console.log('Email:', this.email);
+      console.log('Password:', this.password);
+      this.successMessage = 'Login successful!';
+      console.log(this.successMessage);
+      this.router.navigate(['/candidate-list']);
     } else {
-      this.loginForm.markAllAsTouched();
+      this.errorMessage = 'Please fill in all fields.';
     }
   }
 }

@@ -1,0 +1,9 @@
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+<ul *ngIf="data.length > 0">
+  <li *ngFor="let item of data" class="list-item">
+    <p>inside</p>
+    <span>{{ item.title }}</span>
+    <!-- <button (click)="onButtonClick(item)">Action</button> -->
+  </li>
+</ul>
+<div *ngIf="data.length === 0 && !errorMessage">Loading data...</div>

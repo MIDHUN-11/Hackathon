@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http"; // Import HttpClientModule
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -14,7 +14,7 @@ import { routes } from './app.routes';
     ],
     imports: [
         BrowserModule,
-        ReactiveFormsModule,
+        FormsModule,
         HttpClientModule, // Add HttpClientModule here
         RouterModule.forRoot(routes), // Configure routes
     ],
