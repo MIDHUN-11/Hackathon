@@ -19,11 +19,7 @@ export class CandidateListComponent {
     this.fetchData();
   }
   fetchData():void {
-    this.data = [
-      { id: 1, name: 'John Doe', title: 'Software Engineer' },
-      { id: 2, name: 'Jane Smith', title: 'Product Manager' },
-      { id: 3, name: 'Alice Johnson', title: 'UX Designer' },
-    ];
+    
     const apiUrl = 'https://jsonplaceholder.typicode.com/users'; // Mock API URL
     this.http.get(apiUrl).subscribe({ 
       next: (response: any) => {
@@ -38,5 +34,23 @@ export class CandidateListComponent {
 onButtonClick(item: any): void {
   console.log('Button clicked for item:', item);
   alert(`Button clicked for item: ${item.name}`);
+  // 'https://jsonplaceholder.typicode.com/photos/1'; // Example mock API returning a URL
+
+  this.http.get('https://jsonplaceholder.typicode.com/photos/1').subscribe({
+    next: (response: any) => {
+     let myURL=response.url;
+      console.log('URL:', myURL);
+      // Open the URL in a new tab 
+      window.open(myURL, '_blank');
+    },
+    error: (error: any) => {
+      this.errorMessage = 'Error fetching URL';
+      console.error('Error fetching URL:', error);  
+    },
+  });
+  // let myURL = '';
+  // this.http.get(myURL).subscribe({
+  //   next: (response: any) => {    
+  //   })
 }
 }

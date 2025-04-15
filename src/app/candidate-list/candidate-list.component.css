@@ -1,0 +1,48 @@
+/* Style the list container */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Style each list item */
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Add hover effect for list items */
+  .list-item:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style the span inside the list item */
+  .list-item span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Style the button inside the list item */
+  .list-item button {
+    padding: 0.5rem 1rem;
+    background-color: #f26530;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Add hover effect for the button */
+  .list-item button:hover {
+    background-color: #d95427;
+  }

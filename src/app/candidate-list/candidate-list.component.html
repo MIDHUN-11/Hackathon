@@ -2,7 +2,10 @@
 <ul *ngIf="data.length > 0">
   <li *ngFor="let item of data" class="list-item">
     
-    <span>{{ item.title }}</span>
+    <span><strong>ID:</strong> {{ item.id }}</span>
+    <span><strong>Name:</strong> {{ item.name }}</span>
+    <span><strong>Email:</strong> {{ item.email }}</span>
+    <span><strong>Phone:</strong> {{ item.phone }}</span>
     <button (click)="onButtonClick(item)">Action</button>
   </li>
 </ul>
