@@ -8,7 +8,7 @@ import {CommonModule} from '@angular/common'; // Import CommonModule
   standalone: true,
   imports: [HttpClientModule,CommonModule],
   templateUrl: './candidate-list.component.html',
-  styleUrl: './candidate-list.component.css'
+  styleUrls: ['./candidate-list.component.css']
 })
 export class CandidateListComponent {
   data: any[] = [];
@@ -19,7 +19,12 @@ export class CandidateListComponent {
     this.fetchData();
   }
   fetchData():void {
-    const apiUrl = 'https://api.example.com/candidates'; // Replace with your API URL
+    this.data = [
+      { id: 1, name: 'John Doe', title: 'Software Engineer' },
+      { id: 2, name: 'Jane Smith', title: 'Product Manager' },
+      { id: 3, name: 'Alice Johnson', title: 'UX Designer' },
+    ];
+    const apiUrl = 'https://jsonplaceholder.typicode.com/users'; // Mock API URL
     this.http.get(apiUrl).subscribe({ 
       next: (response: any) => {
         this.data = response;
@@ -29,5 +34,9 @@ export class CandidateListComponent {
         console.error('Error fetching data:', error);  
       },
     });
+}
+onButtonClick(item: any): void {
+  console.log('Button clicked for item:', item);
+  alert(`Button clicked for item: ${item.name}`);
 }
 }
