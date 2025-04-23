@@ -47,7 +47,7 @@ export class CandidateListComponent {
         console.log('Jitsi URL:', jitsiUrl);
         window.open(jitsiUrl, '_blank');
         // Navigate to the JitsiAudioComponent with the URL as a query parameter
-        // this.router.navigate(['/jitsi-audio'], { queryParams: { url: jitsiUrl } });
+        this.router.navigate(['/jitsi-audio'], { queryParams: { url: jitsiUrl } });
       },
       error: (error: any) => {
         this.errorMessage = 'Error fetching Jitsi URL';
